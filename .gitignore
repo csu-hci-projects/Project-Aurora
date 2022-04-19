@@ -64,12 +64,18 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-# Assets Catchall
-/Assets/*
+# Assets Catchall (ignore asset folders)
+/Assets/*/
 
-# Packed Addressables
-/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+# OS generated files #
+######################
+.DS_Store
 
-# Temporary auto-generated Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*n
+# Original gitignore file contents for Assets/Git/Unity
+
+# # Packed Addressables
+# /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# # Temporary auto-generated Android Assets
+# /[Aa]ssets/[Ss]treamingAssets/aa.meta
+# /[Aa]ssets/[Ss]treamingAssets/aa/*n
