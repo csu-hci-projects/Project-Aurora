@@ -68,7 +68,6 @@ crashlytics-build.properties
 Assets/AssetStoreOriginals/*
 Assets/Oculus/*
 Assets/Plugins/*
-Assets/Resources/*
 Assets/Samples/*
 Assets/TextMesh Pro/*
 
