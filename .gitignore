@@ -65,7 +65,15 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Assets Catchall (ignore asset folders)
-/Assets/*/
+/Assets/AssetStoreOriginals/*
+/Assets/Oculus/*
+/Assets/Plugins/*
+/Assets/Resources/*
+/Assets/Samples/*
+/Assets/XR/*
+/Assets/XRI/*
+/Assets/Plugins/*
+Assets/TextMesh Pro/*
 
 # OS generated files #
 ######################
