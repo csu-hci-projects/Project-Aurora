@@ -1,0 +1,3 @@
+rep "Project-Aurora@CSU_Project_Aurora@cloud"
+  path "/"
+    smartbranch "/main"
