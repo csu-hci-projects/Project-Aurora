@@ -65,11 +65,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Assets Catchall (ignore asset folders)
-Assets/AssetStoreOriginals/*
-Assets/Oculus/*
-Assets/Plugins/*
-Assets/Samples/*
-Assets/TextMesh Pro/*
+Assets/Samples
 
 # OS generated files #
 ######################
@@ -83,4 +79,3 @@ Assets/TextMesh Pro/*
 # # Temporary auto-generated Android Assets
 # /[Aa]ssets/[Ss]treamingAssets/aa.meta
 # /[Aa]ssets/[Ss]treamingAssets/aa/*n
-.plastic/plastic.changes
