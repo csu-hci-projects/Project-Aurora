@@ -79,3 +79,9 @@ Assets/Samples
 # # Temporary auto-generated Android Assets
 # /[Aa]ssets/[Ss]treamingAssets/aa.meta
 # /[Aa]ssets/[Ss]treamingAssets/aa/*n
+Assets/TextMesh Pro/Examples & Extras/*
+Assets/TextMesh Pro/Sprites/*
+Assets/TextMesh Pro/Resources/Sprite Assets/*
+Assets/TextMesh Pro/Shaders/*
+Assets/TextMesh Pro/Documentation/*
+Assets/TextMesh Pro/Fonts/*
