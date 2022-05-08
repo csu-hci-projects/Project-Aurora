@@ -1,0 +1,211 @@
+%%
+%% This is file `sample-acmtog.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% samples.dtx  (with options: `acmtog')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from sample-acmtog.tex.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%% The first command in your LaTeX source must be the \documentclass command.
+\documentclass[acmlarge]{acmart}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\graphicspath{{Images/}}
+
+
+
+\setcopyright{acmcopyright}
+\copyrightyear{2022}
+
+
+
+
+\begin{document}
+
+
+\title{Project Aurora: An Examination Of How Notifications Should Be Handled In A Virtual 3D Environment}
+
+
+\author{Karthik Palusa}
+\authornote{Both authors contributed equally to this research.}
+\email{kpalusa@rams.colostate.edu}
+\author{Morgan Davis}
+\authornotemark[1]
+\email{medavis1@rams.colostate.edu}
+\affiliation{%
+  \institution{Colorado State University }
+  \city{Fort Collins}
+  \state{Colorado}
+  \country{USA}
+  \postcode{80521}
+}
+
+
+
+\renewcommand{\shortauthors}{Karthik Palusa and Morgan Davis}
+
+
+
+\ccsdesc[500]{Virtual Reality}
+\ccsdesc[300]{Virtual Environments}
+\ccsdesc{User Notifications}
+\ccsdesc[100]{Human Computer Interaction}
+
+
+\maketitle
+
+\section{Introduction}
+Notifications are a crucial part of any system’s user experience. As defined by Lauren Goode, in her piece for Wired, “Notifications are, at the most basic level, a method of alerting people to some piece of information, often with some element of urgency” \citet{Goode19}. In the early days of computers, notifications came in the form of icon flags and the occasional audible alerts. Usage and how often you were alerted was limited to how often you strictly interacted with the computer, with no simple solution to notify users when away from their personal computer.
+ 
+ However, in 2003, Blackberry introduced email notifications to your phone. This ushered in an era of true instant communication, as now even when you were physically away from your computer, you could still receive email notifications. Innovations addressing notifications would go stale until 2009 when Apple introduced its Apple Push Notification service (APNs) with iOS 3.0. APNs worked through maintaining a continuous connection to the phone and Apple’s notification servers. When a 3rd party service wanted to send a notification, they would send the data to Apple’s servers, which then would relay that information back to the user. Google would follow by releasing its own similar service known as Google Cloud to Device Messaging (C2DM). In the 12 years since the introduction of push notifications, both leading mobile platforms (iOS and Android) have implemented and improved how push notifications are handled, from how and when they’re communicated to also how they’re displayed. 
+
+Nonetheless, there was still room for improvement. Interactive notifications came in 2014, which enabled another layer of interaction such as quick replying to a message or email. This additional layer added another element of interaction in the UI, as now more operations to handle a notification were added, such as swiping right for quick actions and left for notification dismissal. 
+
+Push notifications are also used in macOS and Windows, however, both systems follow less intrusive notification centers; which display collections of notifications in a hidden side panel. While mobile platforms focus on touch interfaces to manage notifications, both PC OSs use a mouse and keyboard as the main form of user interaction. While touchscreens enabled a 1:1 relationship with a gesture mapped to an action, PCs require another layer of interaction due to the gestures provided by the mouse, alongside the physical clicks from the mouse as well. While it does add additional complexity, PC notifications can offer more actions due to the more precise control of gestures and interactions. 
+
+With the introduction of the Meta Quest 2 (FKA Oculus Quest 2) in 2020, we saw the first mass-market, affordable, commercial VR headset. Following the release of the Quest 2 headset, we saw Facebook (Meta) pivot its business towards virtual reality and the “Metaverse”. The metaverse is a virtual 3D world that is focused on social interactions and connections. While gaming was the first wave ushering us into the metaverse, Meta has promises of a platform with many use cases. With this new wave of software interaction, notifications are once again back into their infancy. There currently isn’t a tried and tested way to handle notifications in a virtual environment.
+
+While Meta hasn’t reached the platform size of either Apple’s iOS or Alphabet’s Android, a proper notification system is still required for the platform to reach max adoption. Currently, Oculus’s management of notifications is practically nonexistent, as most applications don’t have a proper suite to manage push notifications. Our goal with Project Aurora is to create a productivity-focused dashboard that handles email and calendar notifications, while also letting users customize how various notifications are presented and handled. Through the usage of an application developed for the Meta Quest 2, Project Aurora’s research will be focused on how to achieve the best user experience regarding notification handling within a 3D virtual environment.
+
+
+
+\section{Related Work}
+
+Push notifications have had close to 20 years of innovation followed by research.  Previous research involved understanding how to deliver notifications from the real world into a virtual one \citet{Rzayev19}. Users would have to exit the virtual environment (e.g taking off the headset) to interact with their phone or computer after receiving a notification. In a study conducted by Rufat Rzayev, Sven Mayer, Christian Krauter, and Niels Henze, they investigated how presenting digital notifications compared in three different virtual environments with three different tasks and  four different placements of the notifications \citet{Rzayev19}. The study found that different types of notifications should be displayed in different placements. For example, urgent notifications should be displayed using a “head-up display” placement because this placement is the most noticeable \citet{Rzayev19}. 
+
+Another study done in 2018 for the CHI Conference on Human Factors in Computing Systems, proposed that VR applications should have notifications that are displayed in a way that fits the virtual environment experienced by the user \citet{Zenner18}. This means having notifications that show up for example by messenger on a horse if the environment has a medieval setting \citet{Zenner18}. The goal behind this experiment is to provide a future framework for developers to be able to  deliver notifications in a more immersive and less intrusive manner \citet{Zenner18}. 
+
+Another study looked at delivering both physical and/or virtual notifications to inform users of head-mounted displays what their surroundings were in the real world \citet{Ghosh18}. They analyzed using multi-modal notifications for common interruptions users would face when immersed in a virtual environment \citet{Ghosh18}. In conclusion of the study, they found that visual notifications alone had poor noticeability and that was possibly “due to the highly visual nature of VR” \citet{Ghosh18}. When they incorporated haptics they were able to get better responses, but haptics without clear distention were difficult to understand \citet{Ghosh18}. These studies provide a great amount of information to take into consideration when designing how we would like to deliver notification in a virtual environment. 
+
+
+\section{Digital Notifications in VR Study}
+
+To complete this project, we developed a program that displays notifications in a 3D virtual environment. The users will then be prompted with notifications from different areas of the environment; the upper right-hand corner, lower right-hand corner, upper left-hand corner, and the bottom left-hand corner. To make sure all inputs are equally favored after each corner notification is handled, the user would have to reset their view back to the center. The actions in the corners and center are button inputs, which would require the user pays attention to the content while also giving us an idea of how users interact with the controller versus the mouse. We are using the center button as a way to signal the “core content” that a user may be working on or viewing. Once the user is focused on the center, similar to how we interact with notification content on our screens, the user then would be shown a notification in another corner. 
+
+The amount of time it takes for a user to interact with each quadrant’s notifications from the press of the center button will be tracked. This data will be collected 3 times and will be averaged to represent the data set. The other part of our experiment will stem from a simpler program on the computer. To create an understanding of how users interact with their computers, we built a simple web page that handles a test very similar to our VR experiment, however this time we used a mouse to track the interaction. Results were taken similarly, as we used the computer data set as a control variable, relative to our VR experiment, due to users being more comfortable with a mouse. 
+
+The data collected, once analyzed, will allow us to determine what is the best way to deliver notifications in a virtual reality environment. 
+
+All project work and deliverables will be divided evenly amongst both members. We will manage progress, tasks, and deliverables using Notion, to ensure all information is easily accessible.
+
+\subsection{Notification Design}
+
+Project Aurora will be an application designed for the Oculus Quest 2 and Quest built using the Unity game engine. Our Minimum Viable Product (MVP) will be a minimal productivity dashboard that has a configurable UI. The core reason the UI will be configurable is to make it easier for us to place notifications in various areas to test the most optimal notification placement.
+
+Our measured metric will be the response time of the user interacting with the notification within the various notification locations. Using the two images below as a mockup, we can see how the UI can vary depending on the notification’s banner location.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{SketchUpDisplay}
+\end{figure}
+
+\section{Experiment Design}
+In the planning stages of Project Aurora, our first question was how do we want to handle information and data. While notifications as a component share a similar design, the content and information density also were hypothesized to play an important role \citet{Seinfeld22,Woodward20,Rzayev20}.
+
+While the locations of where notification content and actions would be located would remain constant, we wanted to ensure that the data we gathered would be able to represent a range, from single line to multiline notifications. Ultimately, we decided to streamline the notification component to focus on the interaction and response time. 
+
+In the design of our component, we kept the relative rectangular shape found in most operating systems as the modular notification component, however, due to the fact that interactions of a notification differ from platform to platform, we made the entire component a touch target. Making the entire object interactable ensured that we could ensure that both macOS and Windows users would have a fair chance on their interaction times. 
+
+Once we got the notification component designed, we had to focus on how we wanted to present the experiment environment. For our environment, we wanted to create a virtual environment that would be similar to a clean desktop. While VR enables users to interact with their environment in more ways than just a simple 2D interface, content like notifications are unique as they stay in the same location(s), no matter the content you are working with. We used this model as a background and created a minimal environment that was open for movement but also limited in what you could. As we merged these ideas, we then focused on understanding how notification alerts can be presented in a respectful way, complimenting the experience, not deteriorating it \citet{Wiehr16,Imamov20}. Ultimately, we created an environment that is similar to a classroom whiteboard or smartboard. As originally envisioned in our proposal, we saw VR as a platform rather than an application, thus we centralized the notifications to just the scaling of the canvas board. While this would allow us to tailor a more experiment-focused environment, it would also give users a sense of familiarity.
+
+\section{Experiment Results}
+The experiments were done using a within-subject design. There were 10 participants that completed a set of three trials in two different experiments. Before either the experiments were conducted each participant was asked what their OS preference was as well as where they would prefer notifications to be presented in VR. Majority of participants preferred MacOS and all participants preferred notifications to display in the top right of their field of view in VR. 
+
+The first experiment was a web based experiment based off of the VR experiment. The objective of this experiment was to collect reaction times to notifications displayed in the web browser. The task was not to try and bet a specific time, but to see what placement of a notification they responded to the quickest. A participant would first click the start in the center of the web-page (Figure 1), once they have done that a timer would start and a notification would appear in either the corner of the web-page (Figure 2). 
+\begin{figure}[H]
+  \caption{The start screen of the web based experiment.}
+  \centering
+  \includegraphics[width=\linewidth]{webStart.png}
+\end{figure}
+
+\begin{figure}[H]
+  \caption{An example of a notification that would appear after the start button is clicked}
+  \centering
+  \includegraphics[width=\linewidth]{webNotification1.png}
+\end{figure}
+
+Once the notification was dismissed a button would reappear in the center of the web-page and say next (Figure 3). When the participant clicked next another timer would start and another notification would appear. There were four notifications that would appear in the same pattern each trial. 
+\begin{figure}[H]
+  \caption{The next button the user would click to push the next notification.}
+  \centering
+  \includegraphics[width=\linewidth]{webNext.png}
+\end{figure}
+
+Once a participant completed a trial their times would be collected and then they would test again. After three trials the participants times for the various notification placements were then averaged to determine what placement they reacted to the quickest.  
+
+
+
+The second experiment was a VR based experiment. Using the Oculus Quest 2 participants would immerse themselves into our virtual world to complete a similar task to the web based experiment with the main difference being that users would use the controllers to dismiss the notifications instead of a mouse.
+Another key difference was that the notifications appeared on a canvas board in the virtual world in order to keep a distraction free environment for the users to focus on the task at hand.
+\begin{figure}[H]
+   \caption{The start canvas in the virtual world.}
+  \centering
+  \includegraphics[width=\linewidth]{vrStart.png}
+\end{figure}
+
+A participant would click the start button and the timer would begin once the notification appeared. Once they interacted with the notification a button labeled center would activate the next notification.
+
+\begin{figure}[H]
+   \caption{Placement of each notification on the canvas (All notifications showing for demonstration purposes).}
+  \centering
+  \includegraphics[width=\linewidth]{vrNotifcationDisplay.png}
+\end{figure}
+
+After all four notifications are dismissed the canvas would then display times in each corner (Figure 6). 
+
+\begin{figure}[H]
+   \caption{The result times displayed after a trial}
+  \centering
+  \includegraphics[scale= 0.1, width=\linewidth]{vrResults.jpg}
+\end{figure}
+
+These reaction times were then averaged after the three trials to determine the participants quickest reaction to each notification placement. 
+\begin{figure}[H]
+  \caption{A bar graph displaying the average response times to all four notifications for each participant}
+  \centering
+  \includegraphics[width=\linewidth]{avgResponseGraph.png}
+\end{figure}
+
+\section{Conclusion}
+Through the experimentation completed, Project Aurora was able to build a base for understanding the relationships between the preference in desktop OS and how the elements from that platform transfer to another platform. While at first, we had hypothesized that there would be a correlation between what operating system users used, and how that would be translated similarly in VR, our findings showed another story. 
+
+With our trials, our biggest takeaway was that a user’s preference does not translate to it being the most efficient route (Figure 7). While all users in our study had stated that they preferred notifications in the top-right corner, almost all users did not have the best result with that corner. 
+\begin{figure}[H]
+  \caption{Bar graph showing Notification preference based on each participants quickest response time to the placement of each notification}
+  \centering
+  \includegraphics[width=\linewidth]{notifyBasedOnParticGraph.png}
+\end{figure}
+The outlier data point in our data set is the only value where the user’s prior OS preference (Windows), translated to them responding the quickest to the bottom-right corner, which is where Windows deploys notifications. However, this data point had participant how he prefers the top right corner handling notifications. Throughout the time trials, we saw the same data points get faster, but maintain similar deltas been values. 
+
+While our hypothesis did not come out in our favor, we conclude that while prior operating system usage does not translate core user interface details from platform to platform, we do think that preference is a strong element in how user interaction should be handled. This is because our data showcased how users were quick to adapt to changes, just within the trials they completed, and how even though the preferred route was not the fastest, users shared they felt their preference for the top-right corner was because it was the most comfortable and natural to use. We hope that with this data, future VR, AR, and XR developers can take our data and continue researching more about how information should be represented in a new environment, especially by comparing the values between one’s preference against their performance metrics. 
+
+
+
+
+
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references.bib}
+
+
+
+\end{document}
+\endinput
+
